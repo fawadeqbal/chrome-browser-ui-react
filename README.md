@@ -1,29 +1,30 @@
-# Chrome-like Browser Window - React Frontend Test
+# Chrome Browser UI - React Frontend Test
 
-A pixel-perfect Chrome browser window UI built with React, featuring realistic tabs, address bar, navigation controls, and window management.
+A pixel-perfect Chrome browser window UI built with React, featuring modular components, responsive design, and exact Chrome styling.
 
 ## Features
 
-- **Window Controls**: Minimize, maximize, and close buttons with realistic styling
-- **Tab Management**: Interactive tabs with hover effects and close buttons
-- **Address Bar**: Rounded address bar with lock icon, URL input, and star button
-- **Navigation Icons**: Back, forward, refresh, and menu buttons
-- **Responsive Design**: Adapts to different screen sizes
-- **Smooth Animations**: Hover effects and transitions for better UX
+- **Window Controls**: Classic minimize, maximize, and close buttons with proper styling
+- **Tab Management**: Interactive tabs with hover effects, close buttons, and smooth transitions
+- **Address Bar**: Rounded search input with magnifying glass icon and bookmark button
+- **Navigation Icons**: Back, forward, and refresh buttons with proper spacing
+- **Responsive Design**: Adapts to all screen sizes with mobile-first approach
+- **Professional Icons**: Lucide React icons for authentic browser appearance
+- **Keyboard Shortcuts**: Ctrl+1-9 for tabs, Ctrl+T for new tab, Ctrl+W to close tab
 
 ## Tools Used
 
 - **React 19.1.1** - Frontend framework with functional components and hooks
 - **Lucide React** - Professional SVG icon library for high-quality UI icons
 - **CSS3** - Custom styling with flexbox, gradients, and modern CSS features
-- **JavaScript ES6+** - Modern JavaScript features including useState hook
+- **JavaScript ES6+** - Modern JavaScript features including useState and useEffect hooks
 
 ## How to Run the Project Locally
 
-1. **Clone or download the project**
+1. **Clone the repository**
    ```bash
-   git clone <repository-url>
-   cd demo
+   git clone https://github.com/[username]/chrome-browser-ui-react
+   cd chrome-browser-ui-react
    ```
 
 2. **Install dependencies**
@@ -43,18 +44,30 @@ A pixel-perfect Chrome browser window UI built with React, featuring realistic t
 
 ```
 src/
-├── App.js          # Main React component with Chrome window
-├── App.css         # Chrome-like styling and layout
-└── index.js        # React app entry point
+├── components/
+│   ├── WindowControls.js      # Window management buttons
+│   ├── Tab.js                 # Individual tab component
+│   ├── NewTabButton.js        # Plus icon for new tabs
+│   ├── TabSection.js          # Container for all tabs
+│   ├── NavigationIcons.js     # Back, forward, refresh buttons
+│   ├── AddressBar.js          # Search input with icons
+│   ├── MenuIcon.js            # Three dots menu button
+│   ├── AddressBarSection.js   # Navigation and address bar container
+│   ├── ChromeTopBar.js        # Tab and address bar sections
+│   ├── ContentArea.js         # Main content container
+│   └── ChromeWindow.js        # Main browser window container
+├── App.js                     # Main React component with state management
+├── App.css                    # Chrome-like styling and responsive design
+└── index.js                   # React app entry point
 ```
 
 ## Technical Implementation
 
-- **Component Structure**: Single main component with organized sections
-- **State Management**: React useState hook for tab switching
-- **CSS Architecture**: Modular CSS with BEM-like naming conventions
-- **Responsive Design**: Mobile-first approach with media queries
-- **Accessibility**: Proper button semantics and keyboard navigation
+- **Component Architecture**: Modular, reusable components with clear separation of concerns
+- **State Management**: React useState hook for tab switching and address bar
+- **CSS Architecture**: Mobile-first responsive design with Chrome-like styling
+- **Accessibility**: ARIA labels, keyboard navigation, and screen reader support
+- **Performance**: Optimized transitions and efficient re-rendering
 
 ## Browser Compatibility
 
@@ -67,14 +80,15 @@ src/
 
 - Professional Lucide React icons for authentic browser experience
 - Pixel-perfect design matching Chrome's visual style
-- Smooth transitions and hover effects
-- Mobile responsive design
-- Clean, maintainable code structure
+- Smooth transitions and hover effects (200ms)
+- Mobile responsive design with touch optimization
+- Clean, maintainable code structure with proper prop interfaces
 
 ## Future Enhancements
 
-- Add more tabs functionality
-- Implement actual navigation
-- Add bookmark management
+- Add more tabs functionality with dynamic tab creation
+- Implement actual navigation and URL handling
+- Add bookmark management system
 - Include developer tools panel
 - Add dark mode support
+- Implement extension support
