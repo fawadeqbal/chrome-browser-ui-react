@@ -1,0 +1,641 @@
+/* Reset and base styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, 'Roboto', 'Helvetica Neue', Arial, sans-serif;
+  background: #f5f5dc;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.app {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #ffffff;
+}
+
+/* Chrome Window Container */
+.chrome-window {
+  width: 100%;
+  height: 100%;
+  background: #ffffff;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  position: relative;
+  border: none;
+  border-radius: 0;
+  box-shadow: none;
+}
+
+/* Window Controls */
+.window-controls {
+  position: absolute;
+  top: 0;
+  right: 0;
+  display: flex;
+  z-index: 1000;
+  padding: 6px 8px;
+  background: #f5f5dc;
+  gap: 4px;
+}
+
+.window-control {
+  width: 14px;
+  height: 14px;
+  border: none;
+  border-radius: 0;
+  margin-left: 0;
+  font-weight: normal;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.15s ease;
+  color: #333333;
+  padding: 0;
+  background: transparent;
+}
+
+.window-control.minimize {
+  background: transparent;
+}
+
+.window-control.maximize {
+  background: transparent;
+}
+
+.window-control.close {
+  background: transparent;
+}
+
+.window-control:hover {
+  background: rgba(0, 0, 0, 0.1);
+}
+
+/* Chrome Top Bar */
+.chrome-top-bar {
+  background: #f5f5dc;
+  border-bottom: none;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  min-height: 70px;
+  position: relative;
+}
+
+/* Tab Section */
+.tab-section {
+  display: flex;
+  align-items: flex-end;
+  background: #f5f5dc;
+  padding: 0;
+  gap: 0;
+  height: 32px;
+  overflow-x: auto;
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE and Edge */
+}
+
+.tab-section::-webkit-scrollbar {
+  display: none; /* Chrome, Safari, Opera */
+}
+
+.tab {
+  background: #e8e8e8;
+  border-radius: 8px 8px 0 0;
+  min-width: 140px;
+  max-width: 180px;
+  height: 28px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  border: none;
+  border-bottom: none;
+  position: relative;
+  margin-right: 1px;
+  flex-shrink: 0;
+}
+
+.tab.active {
+  background: #ffffff;
+  border-color: transparent;
+  z-index: 10;
+  height: 30px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.tab:hover {
+  background: #f0f0f0;
+}
+
+.tab.active:hover {
+  background: #ffffff;
+}
+
+.tab-content {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 4px 12px;
+  height: 100%;
+  min-width: 0;
+  gap: 8px;
+}
+
+.tab-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.tab-title {
+  font-size: 12px;
+  color: #666666;
+  font-weight: 400;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  flex: 1;
+  font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, 'Roboto', 'Helvetica Neue', Arial, sans-serif;
+  transition: color 0.2s ease;
+}
+
+.tab.active .tab-title {
+  color: #333333;
+  font-weight: 500;
+}
+
+.tab-close {
+  width: 14px;
+  height: 14px;
+  border: none;
+  background: transparent;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #666666;
+  margin-left: auto;
+  opacity: 0;
+  transition: all 0.2s ease;
+  padding: 0;
+  flex-shrink: 0;
+}
+
+.tab:hover .tab-close {
+  opacity: 1;
+}
+
+.tab.active .tab-close {
+  opacity: 1;
+}
+
+.tab-close:hover {
+  background: #e0e0e0;
+  color: #333333;
+}
+
+.new-tab {
+  width: 24px;
+  height: 28px;
+  background: #e8e8e8;
+  border-radius: 8px 8px 0 0;
+  border: none;
+  border-bottom: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  color: #666666;
+  transition: all 0.2s ease;
+  margin-left: 1px;
+  padding: 0;
+  flex-shrink: 0;
+}
+
+.new-tab:hover {
+  background: #f0f0f0;
+}
+
+/* Address Bar Section */
+.address-bar-section {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 16px;
+  background: #f8f8f8;
+  border-bottom: none;
+  height: 40px;
+  min-height: 40px;
+  width: 100%;
+}
+
+.navigation-icons {
+  display: flex;
+  gap: 8px;
+  flex-shrink: 0;
+}
+
+.nav-icon {
+  width: 24px;
+  height: 24px;
+  border: none;
+  background: transparent;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #666666;
+  transition: all 0.15s ease;
+  padding: 0;
+}
+
+.nav-icon:hover {
+  background: #f1f3f4;
+  color: #202124;
+}
+
+.nav-icon:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+/* Address Bar */
+.address-bar {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  background: #f0f0f0;
+  border: 1px solid #d0d0d0;
+  border-radius: 24px;
+  padding: 0 16px;
+  height: 28px;
+  transition: all 0.15s ease;
+  min-width: 0;
+  width: 100%;
+}
+
+.address-bar:hover {
+  background: #ffffff;
+  border-color: #c0c0c0;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
+}
+
+.address-bar:focus-within {
+  background: #ffffff;
+  border-color: #4285f4;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
+}
+
+.lock-icon {
+  margin-right: 8px;
+  color: #666666;
+  flex-shrink: 0;
+}
+
+.address-input {
+  flex: 1;
+  border: none;
+  outline: none;
+  font-size: 14px;
+  color: #333333;
+  background: transparent;
+  font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, 'Roboto', 'Helvetica Neue', Arial, sans-serif;
+  min-width: 0;
+}
+
+.address-input::placeholder {
+  color: #666666;
+}
+
+.star-icon {
+  width: 18px;
+  height: 18px;
+  border: none;
+  background: transparent;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #666666;
+  margin-left: 8px;
+  transition: all 0.15s ease;
+  padding: 0;
+  flex-shrink: 0;
+}
+
+.star-icon:hover {
+  background: #e8eaed;
+  color: #202124;
+}
+
+.menu-icon {
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+/* Content Area */
+.content-area {
+  flex: 1;
+  background: #ffffff;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  padding: 20px;
+  border: none;
+  min-height: 0;
+  overflow: auto;
+}
+
+.content-placeholder {
+  text-align: center;
+  color: #5f6368;
+  max-width: 100%;
+  padding: 0 20px;
+  margin-top: 10px;
+}
+
+.content-placeholder h2 {
+  font-size: 24px;
+  margin-bottom: 16px;
+  color: #202124;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-weight: 400;
+}
+
+.content-placeholder p {
+  font-size: 16px;
+  line-height: 1.5;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Responsive Design - Mobile First Approach */
+/* Extra Small devices (phones, 320px and up) */
+@media (min-width: 320px) {
+  .chrome-window {
+    height: 100vh;
+  }
+  
+  .tab {
+    min-width: 120px;
+    max-width: 140px;
+  }
+  
+  .address-bar {
+    min-width: 200px;
+    padding: 0 12px;
+  }
+  
+  .chrome-top-bar {
+    min-height: 100px;
+  }
+  
+  .address-bar-section {
+    padding: 6px 8px;
+    height: 44px;
+    min-height: 44px;
+  }
+  
+  .navigation-icons {
+    gap: 2px;
+  }
+  
+  .nav-icon {
+    width: 28px;
+    height: 28px;
+  }
+  
+  .content-area {
+    padding: 20px;
+  }
+  
+  .content-placeholder h2 {
+    font-size: 20px;
+  }
+  
+  .content-placeholder p {
+    font-size: 14px;
+  }
+}
+
+/* Small devices (landscape phones, 576px and up) */
+@media (min-width: 576px) {
+  .tab {
+    min-width: 140px;
+    max-width: 160px;
+  }
+  
+  .address-bar {
+    min-width: 300px;
+    padding: 0 14px;
+  }
+  
+  .address-bar-section {
+    padding: 7px 10px;
+    height: 46px;
+    min-height: 46px;
+  }
+  
+  .nav-icon {
+    width: 30px;
+    height: 30px;
+  }
+  
+  .content-area {
+    padding: 30px;
+  }
+}
+
+/* Medium devices (tablets, 768px and up) */
+@media (min-width: 768px) {
+  .tab {
+    min-width: 160px;
+    max-width: 180px;
+  }
+  
+  .address-bar {
+    min-width: 400px;
+    padding: 0 16px;
+  }
+  
+  .address-bar-section {
+    padding: 8px 12px;
+    height: 48px;
+    min-height: 48px;
+  }
+  
+  .nav-icon {
+    width: 32px;
+    height: 32px;
+  }
+  
+  .content-area {
+    padding: 40px;
+  }
+  
+  .content-placeholder h2 {
+    font-size: 24px;
+  }
+  
+  .content-placeholder p {
+    font-size: 16px;
+  }
+}
+
+/* Large devices (desktops, 992px and up) */
+@media (min-width: 992px) {
+  .tab {
+    min-width: 180px;
+    max-width: 220px;
+  }
+  
+  .address-bar {
+    min-width: 500px;
+  }
+  
+  .chrome-top-bar {
+    min-height: 120px;
+  }
+}
+
+/* Extra large devices (large desktops, 1200px and up) */
+@media (min-width: 1200px) {
+  .address-bar {
+    min-width: 600px;
+  }
+}
+
+/* Ultra wide screens (1400px and up) */
+@media (min-width: 1400px) {
+  .address-bar {
+    min-width: 700px;
+  }
+  
+  .tab {
+    min-width: 200px;
+    max-width: 240px;
+  }
+}
+
+/* Extra ultra wide screens (1600px and up) */
+@media (min-width: 1600px) {
+  .address-bar {
+    min-width: 800px;
+  }
+}
+
+/* 4K and ultra-wide screens (1920px and up) */
+@media (min-width: 1920px) {
+  .address-bar {
+    min-width: 1000px;
+  }
+  
+  .tab {
+    min-width: 220px;
+    max-width: 260px;
+  }
+}
+
+/* 5K and larger screens (2560px and up) */
+@media (min-width: 2560px) {
+  .address-bar {
+    min-width: 1200px;
+  }
+  
+  .tab {
+    min-width: 240px;
+    max-width: 280px;
+  }
+}
+
+/* Landscape orientation adjustments */
+@media (orientation: landscape) and (max-height: 600px) {
+  .chrome-top-bar {
+    min-height: 80px;
+  }
+  
+  .tab-section {
+    height: 32px;
+  }
+  
+  .tab {
+    height: 28px;
+  }
+  
+  .tab.active {
+    height: 29px;
+  }
+  
+  .address-bar-section {
+    height: 40px;
+    min-height: 40px;
+    padding: 6px 12px;
+  }
+  
+  .address-bar {
+    height: 32px;
+  }
+}
+
+/* High DPI displays */
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+  .window-control {
+    transform: scale(0.9);
+  }
+  
+  .nav-icon {
+    transform: scale(0.95);
+  }
+}
+
+/* Touch device optimizations */
+@media (hover: none) and (pointer: coarse) {
+  .nav-icon {
+    min-width: 44px;
+    min-height: 44px;
+  }
+  
+  .tab-close {
+    min-width: 44px;
+    min-height: 44px;
+  }
+  
+  .star-icon {
+    min-width: 44px;
+    min-height: 44px;
+  }
+  
+  .new-tab {
+    min-width: 44px;
+    min-height: 44px;
+  }
+}
+
+/* Reduced motion preferences */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* Dark mode support (future enhancement) */
+@media (prefers-color-scheme: dark) {
+  /* Dark mode styles can be added here */
+}
